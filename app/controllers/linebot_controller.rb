@@ -38,10 +38,10 @@ class LinebotController < ApplicationController
               per18to24 = doc.elements[xpath + 'info[2]/rainfallchance/period[4]'].text
               if per06to12.to_i >= min_per || per12to18.to_i >= min_per || per18to24.to_i >= min_per
                 push =
-                  "明日の天気だよね。\n明日は雨が降りそうだよ(>_<)\n今のところ降水確率はこんな感じだよ。\n　  6〜12時　#{per06to12}％\n　12〜18時　 #{per12to18}％\n　18〜24時　#{per18to24}％\nまた明日の朝の最新の天気予報で雨が降りそうだったら教えるね！"
+                  "今日もお疲れ様！明日の天気だよね。\n明日は雨が降りそう、、傘を持って出かけるのがいいかも！\n今のところ降水確率はこんな感じだよ。\n　  6〜12時　#{per06to12}％\n　12〜18時　 #{per12to18}％\n　18〜24時　#{per18to24}％\nまた明日の朝の最新の天気予報で雨が降りそうだったら教えるね！"
               else
                 push =
-                  "明日の天気？\n明日は雨が降らない予定だよ(^^)\nまた明日の朝の最新の天気予報で雨が降りそうだったら教えるね！"
+                  "明日の天気？\n明日は雨が降らない予定だよ！\nまた明日の朝の最新の天気予報で雨が降りそうだったら教えるね！"
               end
             when /.*(明後日|あさって).*/
               per06to12 = doc.elements[xpath + 'info[3]/rainfallchance/period[2]l'].text
@@ -52,14 +52,17 @@ class LinebotController < ApplicationController
                   "明後日の天気だよね。\n何かあるのかな？\n明後日は雨が降りそう…\n当日の朝に雨が降りそうだったら教えるからね！"
               else
                 push =
-                  "明後日の天気？\n気が早いねー！何かあるのかな。\n明後日は雨は降らない予定だよ(^^)\nまた当日の朝の最新の天気予報で雨が降りそうだったら教えるからね！"
+                  "明後日の天気？\n雨を吹き飛ばすぞ〜！！。\n明後日は雨は降らない予定だよ(^^)\nまた当日の朝の最新の天気予報で雨が降りそうだったら教えるからね！"
               end
             when /.*(かわいい|可愛い|カワイイ|きれい|綺麗|キレイ|素敵|ステキ|すてき|面白い|おもしろい|ありがと|すごい|スゴイ|スゴい|好き|頑張|がんば|ガンバ).*/
               push =
                 "ありがとう！！！\n優しい言葉をかけてくれるあなたはとても素敵です(^^)"
             when /.*(こんにちは|こんばんは|初めまして|はじめまして|おはよう).*/
               push =
-                "こんにちは。\n声をかけてくれてありがとう\n今日があなたにとっていい日になりますように(^^)"
+                "こんにちは。\n声をかけてくれてありがとう\n今日があなたにとっていい日になりますように！！"
+            when /.*(せいや|聖矢).*/
+                push =
+                "まりな〜大好きだよおお！！"
             else
               per06to12 = doc.elements[xpath + 'info/rainfallchance/period[2]l'].text
               per12to18 = doc.elements[xpath + 'info/rainfallchance/period[3]l'].text
