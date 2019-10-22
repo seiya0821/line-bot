@@ -54,7 +54,7 @@ class LinebotController < ApplicationController
                 push =
                   "明後日の天気？\n雨を吹き飛ばすぞ〜！！\n明後日は雨は降らない予定だよん\nまた当日の朝の最新の天気予報で雨が降りそうだったら教えるからね！"
               end
-            when /.*(かわいい|可愛い|カワイイ|きれい|綺麗|キレイ|素敵|ステキ|すてき|面白い|おもしろい|ありがと|すごい|スゴイ|スゴい|好き|頑張|がんば|ガンバ).*/
+            when /.*(かわいい|可愛い|カワイイ|きれい|綺麗|キレイ|素敵|ステキ|すてき|面白い|おもしろい|ありがと|すごい|スゴイ|スゴい|頑張|がんば|ガンバ).*/
               push =
                 "ありがとう！！！\nそんな優しい言葉をかけてくれるあなたはとても素敵です！！"
             when /.*(好き|すき).*/
@@ -87,6 +87,9 @@ class LinebotController < ApplicationController
             when /.*(ぽんた).*/
                 push =
                 "もうねむいみたいですぴ〜って寝てます！よしよししてあげてね！"
+            when /.*(ごめんね|ごめん).*/
+                pish =
+                "こちらこそごめんよお、、一緒に美味しいもの食べに行かない？"
             else
               per06to12 = doc.elements[xpath + 'info/rainfallchance/period[2]l'].text
               per12to18 = doc.elements[xpath + 'info/rainfallchance/period[3]l'].text
