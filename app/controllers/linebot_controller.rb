@@ -72,6 +72,21 @@ class LinebotController < ApplicationController
             when /.*(会いたい|あいたい).*/
                 push = 
                 "俺もあいたいよおお！！早くよしよししたいですっ"
+            when /.*(お腹すいた|おなかすいた|おなかすいたよ|お腹すきました).*/
+                push = 
+                "お腹すいたね〜！今日のご飯は何にしよっか！！外に食べに行くのもいいかもだよ！！"
+            when /.*(辛い|つらい).*/
+                push =
+                "あんまり無理しないで、深呼吸深呼吸だよ！大丈夫必ずいい方向に向かうから！一緒にがんばろっ！忘れないでまりなは一人じゃないからね！"
+            when /.*(眠い|ねむい).*/
+                push =
+                "お疲れ様だよおお！今日もよく頑張りました！美味しいもの食べて今日は早めにおやすみしよっ"
+            when /.*(こはく).*/
+                push =
+                "ずっとまりなが大好きってしっぽふってます！"
+            when /.*(ぽんた).*/
+                push =
+                "もうねむいみたいですぴ〜って寝てます！よしよししてあげてね！"
             else
               per06to12 = doc.elements[xpath + 'info/rainfallchance/period[2]l'].text
               per12to18 = doc.elements[xpath + 'info/rainfallchance/period[3]l'].text
