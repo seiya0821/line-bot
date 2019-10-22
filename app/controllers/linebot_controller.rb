@@ -69,6 +69,9 @@ class LinebotController < ApplicationController
             when /.*(せいや|聖矢).*/
                 push =
                 "まりな〜いつもありがとう！大好きだよおお！！"
+            when /.*(会いたい|あいたい).*/
+                push = 
+                "俺もあいたいよおお！！早くよしよししたいですっ"
             else
               per06to12 = doc.elements[xpath + 'info/rainfallchance/period[2]l'].text
               per12to18 = doc.elements[xpath + 'info/rainfallchance/period[3]l'].text
